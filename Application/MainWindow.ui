@@ -1,0 +1,1299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>820</width>
+    <height>720</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Deep Learning Tool</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="tabMain">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>781</width>
+      <height>531</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="tabMainSelectData">
+     <attribute name="title">
+      <string>Select Data</string>
+     </attribute>
+     <widget class="QGroupBox" name="gbSplitData">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>90</y>
+        <width>591</width>
+        <height>151</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Split Data</string>
+      </property>
+      <widget class="QLabel" name="lblTrainRatio">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>51</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Train:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lblValRatio">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>51</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Validation:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lblTestRatio">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>80</y>
+         <width>51</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Test:</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="chkShuffle">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>120</y>
+         <width>70</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Shuffle</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="leDataSetPath">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>20</y>
+         <width>361</width>
+         <height>25</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btnSelectDataSet">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>50</y>
+         <width>361</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Browse Data Set</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lblPath">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>20</y>
+         <width>30</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Path:</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btnSplitDataSet">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>110</y>
+         <width>361</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Split</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="dsbTrainRatio">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>20</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="dsbValRatio">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>50</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="dsbTestRatio">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>80</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QComboBox" name="cbDataType">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>30</y>
+        <width>241</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="gbSelectPath">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>280</y>
+        <width>591</width>
+        <height>141</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Path</string>
+      </property>
+      <widget class="QPushButton" name="btnSelectTrainSet">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>151</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Browse Train Set</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btnSelectValSet">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>60</y>
+         <width>151</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Browse Validation Set</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btnSelectTestSet">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>100</y>
+         <width>151</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Browse Test Set</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lblPath2">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>20</y>
+         <width>30</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Path:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lblPath3">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>60</y>
+         <width>30</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Path:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lblPath4">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>100</y>
+         <width>31</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Path:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="leTrainSetPath">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>20</y>
+         <width>361</width>
+         <height>25</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="leValSetPath">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>60</y>
+         <width>361</width>
+         <height>25</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="leTestSetPath">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>100</y>
+         <width>361</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="readOnly">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QLabel" name="lblDataType">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>30</y>
+        <width>91</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Data Type:</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tabMainPreprocess">
+     <attribute name="title">
+      <string>Pre-Process</string>
+     </attribute>
+     <widget class="QTabWidget" name="tabPreprocess">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>10</y>
+        <width>731</width>
+        <height>461</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <property name="tabBarAutoHide">
+       <bool>false</bool>
+      </property>
+      <widget class="QWidget" name="tabPreprocessMri">
+       <attribute name="title">
+        <string>MRI</string>
+       </attribute>
+       <widget class="QGroupBox" name="groupBox_3">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>371</width>
+          <height>401</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Pre-Process MRI</string>
+        </property>
+        <widget class="QPushButton" name="btnPreprocessMri">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>350</y>
+           <width>331</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Start</string>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="cbPreprocessMriPath">
+         <property name="geometry">
+          <rect>
+           <x>140</x>
+           <y>20</y>
+           <width>211</width>
+           <height>22</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lblPreprocessMriPath">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>20</y>
+           <width>91</width>
+           <height>25</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Path:</string>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="cbResampleOption">
+         <property name="geometry">
+          <rect>
+           <x>140</x>
+           <y>60</y>
+           <width>211</width>
+           <height>22</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lblResampleOption">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>60</y>
+           <width>91</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Resample Option:</string>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="chkSkullStripping">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>290</y>
+           <width>271</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Deep Brain Skull Stripping by Ivan Itzcovich</string>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="chkNormalizationMri">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>320</y>
+           <width>271</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Z-Score Intensity Normalization by Jacob Reinhold</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lblResampleDepth">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>240</y>
+           <width>91</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Target Depth</string>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="sbResampleDepth">
+         <property name="geometry">
+          <rect>
+           <x>140</x>
+           <y>230</y>
+           <width>61</width>
+           <height>31</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lblResampleAffine">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>120</y>
+           <width>91</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Scale affine:</string>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="sbResampleRows">
+         <property name="geometry">
+          <rect>
+           <x>140</x>
+           <y>150</y>
+           <width>61</width>
+           <height>31</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lblResampleCols">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>200</y>
+           <width>91</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Target Cols:</string>
+         </property>
+        </widget>
+        <widget class="QDoubleSpinBox" name="dsbResampleAffine">
+         <property name="geometry">
+          <rect>
+           <x>140</x>
+           <y>110</y>
+           <width>62</width>
+           <height>31</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="sbResampleCols">
+         <property name="geometry">
+          <rect>
+           <x>140</x>
+           <y>190</y>
+           <width>61</width>
+           <height>31</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lblResampleRows">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>160</y>
+           <width>91</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Target Rows:</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QLabel" name="lblVisualizeMri">
+        <property name="geometry">
+         <rect>
+          <x>400</x>
+          <y>40</y>
+          <width>300</width>
+          <height>300</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 1px solid black</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lblVisualizeMriTitle">
+        <property name="geometry">
+         <rect>
+          <x>400</x>
+          <y>10</y>
+          <width>300</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Visualizing MRI Volume Slice:</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tabPreprocessFeatureVector">
+       <attribute name="title">
+        <string>Feature Vector</string>
+       </attribute>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tabMainNewModel">
+     <attribute name="title">
+      <string>New Model</string>
+     </attribute>
+     <widget class="QComboBox" name="cbModelArch">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>10</y>
+        <width>211</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="gbModelParameters">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>40</y>
+        <width>211</width>
+        <height>361</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Model Parameters</string>
+      </property>
+      <widget class="QLabel" name="lblFilters">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>110</y>
+         <width>60</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Filters:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lblKernelSize">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>140</y>
+         <width>60</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Kernel size:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lblPadding">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>170</y>
+         <width>60</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Padding:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lblActivation">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>230</y>
+         <width>60</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Activation:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lblPoolSize">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>260</y>
+         <width>60</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Pool size:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lblDropout">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>290</y>
+         <width>60</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Dropout:</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cbPadding">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>170</y>
+         <width>100</width>
+         <height>25</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cbActivation">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>230</y>
+         <width>100</width>
+         <height>25</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="sbFilters">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>110</y>
+         <width>101</width>
+         <height>25</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="sbKernelSize">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>140</y>
+         <width>101</width>
+         <height>25</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="sbPoolSize">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>260</y>
+         <width>101</width>
+         <height>25</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="dsbDropout">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>290</y>
+         <width>101</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="decimals">
+        <number>2</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lblLstmUnit">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>200</y>
+         <width>60</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>LSTM Unit:</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="sbLstmUnit">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>200</y>
+         <width>101</width>
+         <height>25</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lblDepth">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>80</y>
+         <width>60</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Depth:</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="sbDepth">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>80</y>
+         <width>101</width>
+         <height>25</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lblCols">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>60</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Cols:</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="sbCols">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>50</y>
+         <width>101</width>
+         <height>25</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="sbRows">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>20</y>
+         <width>101</width>
+         <height>25</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lblRows">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>60</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Rows:</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="sbClasses">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>320</y>
+         <width>101</width>
+         <height>25</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lblClasses">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>320</y>
+         <width>60</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Classes:</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QLabel" name="lblModelSummary">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>40</y>
+        <width>521</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Model Summary</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnCreateModel">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>320</y>
+        <width>521</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Create Model</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnSaveModelParam">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>350</y>
+        <width>521</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Save Model Parameters</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblModelArch">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>10</y>
+        <width>101</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Model Architecture:</string>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="tbModelSummary">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>70</y>
+        <width>521</width>
+        <height>240</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tabMainTrain">
+     <attribute name="title">
+      <string>Train</string>
+     </attribute>
+     <widget class="QPushButton" name="btnLoadModelParam">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>211</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Load Model Parameters</string>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="tbModelInfo">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>70</y>
+        <width>521</width>
+        <height>240</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblModelInfo">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>40</y>
+        <width>521</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Info</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="gbCompileModel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>211</width>
+        <height>161</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Compile Model</string>
+      </property>
+      <widget class="QLabel" name="lblOptimizer">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>60</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Optimizer:</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cbOptimizer">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>20</y>
+         <width>100</width>
+         <height>25</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cbLoss">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>50</y>
+         <width>100</width>
+         <height>25</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lblLoss">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>60</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Loss:</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="cbMetrics">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>80</y>
+         <width>100</width>
+         <height>25</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lblMetrics">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>80</y>
+         <width>60</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Metrics:</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btnCompileModel">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>120</y>
+         <width>181</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Compile</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="gbFitModel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>250</y>
+        <width>211</width>
+        <height>131</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Fit Model</string>
+      </property>
+      <widget class="QLabel" name="lblBatchSize">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>60</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Batch Size:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lblEpoch">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>60</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Epoch:</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btnFitModel">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>90</y>
+         <width>181</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Fit</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="sbBatchSize">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>20</y>
+         <width>100</width>
+         <height>25</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="sbEpoch">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>50</y>
+         <width>100</width>
+         <height>25</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QPushButton" name="btnSaveTrainedModel">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>320</y>
+        <width>521</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Save Trained Model</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnEncodeTrainLabels">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>220</y>
+        <width>211</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Encode Train Labels</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tabMainTest">
+     <attribute name="title">
+      <string>Test</string>
+     </attribute>
+     <widget class="QPushButton" name="btnLoadTrainedModel">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>40</y>
+        <width>191</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Load Trained Model</string>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="tbTrainedModelInfo">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>40</y>
+        <width>521</width>
+        <height>240</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblTrainedModelInfo">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>10</y>
+        <width>521</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Info</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnPredict">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>110</y>
+        <width>191</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Predict</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnLoadEncodeInfo">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>70</y>
+        <width>191</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Load Encode Info</string>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="tbPredictions">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>320</y>
+        <width>741</width>
+        <height>161</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblPredictions">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>290</y>
+        <width>741</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Predictions</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="lblInfo">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>560</y>
+      <width>30</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Info:</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="teInfo">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>560</y>
+      <width>750</width>
+      <height>100</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>820</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
