@@ -18,10 +18,8 @@ class customMriGenerator(keras.utils.Sequence):
 
         mriBatch = []
 
-
         for filePath in batchX:
             img = nib.load(filePath)
-            #img = resample_img(img, target_affine=np.eye(3)*4., interpolation='nearest') # Resample
             imgData = img.get_fdata()
             imgDataArr = np.asarray(imgData)
             mriBatch.append(imgDataArr)
