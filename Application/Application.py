@@ -14,7 +14,6 @@ from deepbrain import Extractor
 import intensity_normalization as ino
 import numpy as np
 from keras.models import model_from_json, load_model
-from pathlib import Path
 from CustomGenerator import customMriGenerator
 from keras.utils.np_utils import to_categorical
 from sklearn.preprocessing import LabelEncoder
@@ -32,7 +31,6 @@ warnings.filterwarnings('ignore', message='invalid value encountered in true_div
 warnings.filterwarnings('ignore', message='invalid value encountered in double_scalars')
 warnings.filterwarnings('ignore', message='NaNs or infinite values are present in the data passed to resample')
 warnings.filterwarnings('ignore', category=FutureWarning)
-
 
 class myApp(QtWidgets.QMainWindow):
 
@@ -71,11 +69,9 @@ class myApp(QtWidgets.QMainWindow):
         self.setWindowIcon(QIcon('icon.png'))
         self.setFixedSize(self.size())
 
-
         # Info Box
         self.ui.teInfo.setReadOnly(True)
         self.ui.teInfo.textChanged.connect(self.infoBoxTextChanged)
-
 
         # Select Data Tab
         self.ui.cbDataType.addItems(self.dataTypeList)
@@ -112,7 +108,6 @@ class myApp(QtWidgets.QMainWindow):
         self.ui.leValSetPath.textChanged.connect(self.valPathChanged)
         self.ui.leTestSetPath.textChanged.connect(self.testPathChanged)
 
-
         # Pre-process Tab
         self.ui.cbPreprocessMriPath.addItems(self.preprocessMriPathOptions)
         self.ui.cbPreprocessMriPath.currentTextChanged.connect(self.preprocessMriPathChanged)
@@ -144,7 +139,6 @@ class myApp(QtWidgets.QMainWindow):
         self.ui.tabPreprocess.setTabEnabled(1, False)
         self.ui.tabPreprocess.setTabToolTip(1, 'This feature is under construction and will be added in upcoming version.')
 
-
         # Create Model Tab
         self.ui.cbModelArch.addItems(self.modelArchList)
         self.ui.cbModelArch.currentTextChanged.connect(self.modelArchChanged)
@@ -173,7 +167,6 @@ class myApp(QtWidgets.QMainWindow):
 
         self.ui.dsbDropout.setSingleStep(0.01)
 
-
         # Train Model Tab
         self.ui.btnLoadModelParam.clicked.connect(self.loadModelParameters)
 
@@ -189,18 +182,14 @@ class myApp(QtWidgets.QMainWindow):
         self.ui.btnFitModel.clicked.connect(self.fitModel)
         self.ui.btnSaveTrainedModel.clicked.connect(self.saveTrainedModel)
 
-
         # Test Model Tab
         self.ui.btnLoadTrainedModel.clicked.connect(self.loadTrainedModel)
         self.ui.btnLoadEncodeInfo.clicked.connect(self.loadEncodeInfo)
         self.ui.btnPredict.clicked.connect(self.predict)
 
-
-
     # Info Box
     def infoBoxTextChanged(self):
         self.ui.teInfo.moveCursor(QTextCursor.End)
-
 
     # Select Data Tab
     def dataTypeChanged(self):
@@ -214,7 +203,6 @@ class myApp(QtWidgets.QMainWindow):
 
         tabIndexPreprocess = self.dataTypeList.index(self.dataType)
         #self.ui.tabPreprocess.setCurrentIndex(tabIndexPreprocess)
-
 
     def selectDataPath(self):
         sender = self.sender()
@@ -234,7 +222,6 @@ class myApp(QtWidgets.QMainWindow):
             self.ui.leValSetPath.setText(path)
         elif sender.text() == 'Browse Test Set':
             self.ui.leTestSetPath.setText(path)
-
 
     def splitDataSet(self):
         trainRatio = self.ui.dsbTrainRatio.value()
@@ -292,7 +279,6 @@ class myApp(QtWidgets.QMainWindow):
             dfVal.to_csv(dataPath + '_val.csv')
             dfTest.to_csv(dataPath + '_test.csv')
 
-    
     # Pre-process Tab
     def preprocessMriPathChanged(self):
         self.ui.lblVisualizeMri.clear()
@@ -317,11 +303,10 @@ class myApp(QtWidgets.QMainWindow):
             self.preprocessPathValid = True
             self.updateDisplayedMri(filePath)
 
-
     def resampleOptionChanged(self):
         option = self.ui.cbResampleOption.currentText()
         
-        if option == 'No Resample': # self.resampleOptions[] olarak verilebilir
+        if option == 'No Resample': # self.resampleOptions[] can be used
             self.ui.dsbResampleAffine.setEnabled(False)
             self.ui.sbResampleRows.setEnabled(False)
             self.ui.sbResampleCols.setEnabled(False)
@@ -336,7 +321,6 @@ class myApp(QtWidgets.QMainWindow):
             self.ui.sbResampleRows.setEnabled(True)
             self.ui.sbResampleCols.setEnabled(True)
             self.ui.sbResampleDepth.setEnabled(True)
-
 
     def preprocessMri(self):
         if self.preprocessPathValid == False:
@@ -436,14 +420,12 @@ class myApp(QtWidgets.QMainWindow):
         self.updateDisplayedMri(preprocessedFilePath)
         self.ui.teInfo.append('Selected path is updated.')
 
-
     def modelArchChanged(self):
         modelArch = self.ui.cbModelArch.currentText()
         if modelArch == 'Conv3D':
             self.ui.sbLstmUnit.setVisible(False)
         elif modelArch == 'Conv2D + LSTM':
             self.ui.sbLstmUnit.setVisible(True)
-
 
     def createModel(self):
         model = None
@@ -461,7 +443,7 @@ class myApp(QtWidgets.QMainWindow):
         dropout = self.ui.sbPoolSize.value()
         numClasses = self.ui.sbClasses.value()
 
-        try: # Try-except yapısı kaldırılabilir
+        try: # Try-except can be removed
             if modelArch == 'Conv3D':
                 inputShape = (rows, cols, depth, 1)
                 model = myConv3d(inputShape, numClasses, filters, kernelSize, padding, activation, poolSize, dropout)
@@ -485,15 +467,13 @@ class myApp(QtWidgets.QMainWindow):
         
         except:
             self.ui.teInfo.append('Please enter valid model parameters')
-
-    
+ 
     def findFirstFile(self, folderPath, fileExtension):
         for root, dirs, files in os.walk(folderPath):
             for file in files:
                 if file.endswith(fileExtension):
                     return os.path.join(root, file)
         return ''
-
 
     def updateDisplayedMri(self, filePath):
         loadedFile = nib.load(filePath).get_fdata()
@@ -512,7 +492,6 @@ class myApp(QtWidgets.QMainWindow):
         #if os.path.exists(outputPath):
             #os.remove(outputPath)
 
-
     def saveModelParameters(self):
         cwd = os.getcwd()
         outputFolderPath = os.path.join(cwd, 'files')
@@ -527,7 +506,6 @@ class myApp(QtWidgets.QMainWindow):
         
         except:
             self.ui.teInfo.append('There are no model parameters to save!')
-
 
     def loadModelParameters(self):
         dialog = QtWidgets.QFileDialog()
@@ -551,7 +529,6 @@ class myApp(QtWidgets.QMainWindow):
         except:
             self.ui.teInfo.append('Unable to load model from JSON file')
 
-
     def compileModel(self):
         if self.modelParamLoaded == True:
             optimizer = self.ui.cbOptimizer.currentText()
@@ -563,7 +540,6 @@ class myApp(QtWidgets.QMainWindow):
 
         else:
             self.ui.teInfo.append('Load model parameters to compile!')
-
 
     def encodeTrainLabels(self):
         trainPath = self.ui.leTrainSetPath.text()
@@ -623,7 +599,6 @@ class myApp(QtWidgets.QMainWindow):
 
         self.ui.teInfo.append('Encode completed and class info is saved.')
         
-
     def fitModel(self):
         if self.modelCompiled == True and self.isLabelEncoded == True:
             batchSize = self.ui.sbBatchSize.value()
@@ -665,7 +640,6 @@ class myApp(QtWidgets.QMainWindow):
         else:
             self.ui.teInfo.append('Compile model and encode label to fit model!')
 
-
     def saveTrainedModel(self):
         if self.isModelTrained == True:
             cwd = os.getcwd()
@@ -678,7 +652,6 @@ class myApp(QtWidgets.QMainWindow):
                 self.ui.teInfo.append('There is no trained model to save!')
         else:
             self.ui.teInfo.append('Model must be trained in order to save it!')
-
 
     def trainPathChanged(self):
         self.isLabelEncoded = False
@@ -698,14 +671,11 @@ class myApp(QtWidgets.QMainWindow):
         self.ui.sbCols.setValue(cols)
         self.ui.sbDepth.setValue(depth)
 
-
     def valPathChanged(self):
         self.isLabelEncoded = False
 
-
     def testPathChanged(self):
-        pass # No need for now
-
+        pass # May be required in later versions
 
     def loadTrainedModel(self):
         dialog = QtWidgets.QFileDialog()
@@ -727,8 +697,7 @@ class myApp(QtWidgets.QMainWindow):
 
         except:
             self.ui.teInfo.append('Unable to load trained model from H5 file!')
-
-    
+   
     def loadEncodeInfo(self):
         dialog = QtWidgets.QFileDialog()
         path = dialog.getOpenFileName(self, 'Select File', filter='(*.npy)')[0]
@@ -738,7 +707,6 @@ class myApp(QtWidgets.QMainWindow):
             self.ui.teInfo.append('Class info for encoder is loaded from npy file successfully')
         except:
             self.ui.teInfo.append('Unable to load class info for encoder from npy file!')
-
 
     def predict(self):
         if self.isModelTrained == False:
@@ -792,7 +760,7 @@ class myApp(QtWidgets.QMainWindow):
                 pred = self.model.predict(niImgArr)
                 yPred.append(pred[0])
                 yPredDecoded.append(labelList[np.argmax(yPred[index])])
-                formattedResults.append([xTestFileNames[index], str(yTest[index]), str(yPredDecoded[index])]) # Encoded label yazdırmak için str() gerekli
+                formattedResults.append([xTestFileNames[index], str(yTest[index]), str(yPredDecoded[index])]) # str() is required to print encoded label
                 self.ui.tbPredictions.append(formattedResults[index][0] + ', ' + formattedResults[index][1] + ', ' + formattedResults[index][2])
                 print('Prediction completed for:', filePath)
 
@@ -808,7 +776,7 @@ class myApp(QtWidgets.QMainWindow):
             csvWriter.writerows(formattedResults)
             csvFile.close()
 
-            performanceMetrics = classification_report(yTest, yPredDecoded, labels=labelList, zero_division=0) # Sınıflara yeni isim vermek için labels yerine target_names
+            performanceMetrics = classification_report(yTest, yPredDecoded, labels=labelList, zero_division=0) # target_names can be used instead of labels to rename classes
             textFile = open(os.path.join(outputFolderPath,'performanceMetrics.txt'), 'w+')
             textFile.write(performanceMetrics)
             textFile.close()
@@ -821,8 +789,7 @@ class myApp(QtWidgets.QMainWindow):
 
         except:
             self.ui.teInfo.append('Something went wrong with test')
-            print('Unexpected error:', sys.exc_info()[0]) # Hatayı konsola yazdırmak için
-
+            print('Unexpected error:', sys.exc_info()[0]) # Print the error to the console
 
 def app():
     app = QtWidgets.QApplication(sys.argv)
