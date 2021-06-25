@@ -47,8 +47,6 @@ def myConv2dLstm(inputShape, numClasses, filters, kernelSize, padding, lstmUnit,
     model.add(TimeDistributed(BatchNormalization()))
     model.add(TimeDistributed(MaxPooling2D(pool_size=poolSize, padding=padding)))
 
-    #model.add(TimeDistributed(Dropout(dropout)))
-
     model.add(TimeDistributed(Conv2D(filters*4, kernel_size=kernelSize, padding=padding, activation=activation)))
     model.add(TimeDistributed(BatchNormalization()))
     model.add(TimeDistributed(MaxPooling2D(pool_size=poolSize, padding=padding)))
@@ -57,33 +55,13 @@ def myConv2dLstm(inputShape, numClasses, filters, kernelSize, padding, lstmUnit,
     model.add(TimeDistributed(BatchNormalization()))
     model.add(TimeDistributed(MaxPooling2D(pool_size=poolSize, padding=padding)))
 
-    #model.add(TimeDistributed(Dropout(dropout)))
-
     model.add(TimeDistributed(Conv2D(filters, kernel_size=kernelSize, padding=padding, activation=activation)))
     model.add(TimeDistributed(BatchNormalization()))
     model.add(TimeDistributed(MaxPooling2D(pool_size=poolSize, padding=padding)))
     
     model.add(TimeDistributed(Flatten()))
-    model.add(LSTM(lstmUnit, return_sequences=False, dropout=dropout)) # dropout eklenebilir
+    model.add(LSTM(lstmUnit, return_sequences=False, dropout=dropout))
     model.add(BatchNormalization())
     model.add(Dense(filters*4, activation=activation))    
     model.add(Dense(numClasses, activation='softmax'))
     return model
-
-
-"""
-def myConv2dLstm(inputShape, numClasses, filters, kernelSize, strides, lstmUnit, activation, poolSize, dropout):
-    model = Sequential()
-
-    model.add(ConvLSTM2D(filters, kernel_size=kernelSize, activation=activation, input_shape=inputShape, return_sequences=True))
-    model.add(MaxPooling3D(pool_size=poolSize))
-
-    model.add(ConvLSTM2D(filters*2, kernel_size=kernelSize, activation=activation, return_sequences=True))
-    model.add(MaxPooling3D(pool_size=poolSize))
-
-    model.add(TimeDistributed(Flatten()))
-    model.add(LSTM(lstmUnit, return_sequences=False))
-    model.add(Dropout(dropout))
-    model.add(Dense(numClasses, activation='softmax'))
-    return model
-"""
