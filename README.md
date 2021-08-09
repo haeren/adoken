@@ -3,8 +3,33 @@ Deep Learning Based Decision Support Software For MRI
 
 ## Dependency List
 
-1) CUDA and cudNN need to be installed. Versions used in this project are CUDA 10.0 and cudNN 7.5.0
-2) Install Tensorflow with the following command (old version is required for deepbrain module):
+CUDA and cudNN need to be installed. Versions used in this project are CUDA 10.0 and cudNN 7.5.0
+- Install/update NVIDIA driver
+- Install Anaconda and update it in Anaconda Prompt:
+```
+conda update conda
+conda update --all 
+```
+- Install CUDA Toolkit
+- Download cuDNN and extract the archieve to C drive like this:
+```
+C:\cudnn-10.0-windows10-x64-v7.5.0.56
+```
+- Edit environment variables: Select "Path" in user variables and click "Edit". Add "YOUR_CUDNN_PATH/cuda/bin" after clicking "New". The path should look like this:
+```
+C:\cudnn-10.0-windows10-x64-v7.5.0.56\cuda\bin
+```
+- You can check the new PATH with the following command:
+```
+echo %PATH%
+```
+- Create a new Anaconda environment (Python 3.6) and activate it (You can edit "myenv" part, it is the environment's name):
+```
+conda create -n myenv python=3.6
+activate myenv
+```
+
+Install Tensorflow for GPU with the following command (old version is required for deepbrain module):
 ```
 pip install tensorflow-gpu==1.15
 ```
