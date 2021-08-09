@@ -11,11 +11,11 @@ conda update conda
 conda update --all 
 ```
 - Install CUDA Toolkit
-- Download cuDNN and extract the archieve to C drive like this:
+- Download cuDNN and extract the archive to C drive like this:
 ```
 C:\cudnn-10.0-windows10-x64-v7.5.0.56
 ```
-- Edit environment variables: Select "Path" in user variables and click "Edit". Add "YOUR_CUDNN_PATH/cuda/bin" after clicking "New". The path should look like this:
+- Edit environment variables: Select "Path" under the user variables and click "Edit". Add "YOUR_CUDNN_PATH\cuda\bin" after clicking "New". The path should look like this:
 ```
 C:\cudnn-10.0-windows10-x64-v7.5.0.56\cuda\bin
 ```
@@ -29,7 +29,7 @@ conda create -n myenv python=3.6
 activate myenv
 ```
 
-Install Tensorflow for GPU with the following command (old version is required for deepbrain module):
+Install Tensorflow-GPU (for Keras backend) with the following command (old version is required for deepbrain module):
 ```
 pip install tensorflow-gpu==1.15
 ```
@@ -52,6 +52,8 @@ Other dependencies are:
 | arff2pandas | 1.0.1 |
 
 ## Usage
+
+Activate the environment if it is not activated (You can change the settings, but by default the base environment will be activated each time you open a new Anaconda prompt)
 
 Start the application with:
 ```
