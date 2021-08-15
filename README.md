@@ -99,3 +99,5 @@ journal = {Mühendislik Bilimleri ve Tasarım Dergisi},
 doi = {10.21923/jesd.887327}
 }
 ```
+
+"[Machine Learning](https://thenounproject.com/term/neural/2010152/)" icon used on the application window is by [Angela](https://thenounproject.com/angelawang0524/) from [the Noun Project](https://thenounproject.com/).
